@@ -1,27 +1,24 @@
 import os
 import time
-import hashlib
 from threading import Thread
 from flask import Flask
 from dotenv import load_dotenv
-
-# Supabase & LangChain
 from supabase import create_client, Client
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage
 
 load_dotenv()
-
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Neural Sales Ops is Active", 200
+    return "Neural Sales Ops is 100% Operational", 200
 
 # --- CONFIGURAÇÃO ---
-SUPABASE_URL = os.getenv("SUPABASE_URL")
+url = os.getenv("SUPABASE_URL")
+if url and not url.endswith('/'): url += '/'
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+supabase: Client = create_client(url, SUPABASE_KEY)
 
 llm = ChatOpenAI(
     model='deepseek-chat', 
@@ -35,67 +32,88 @@ BUCKET_OUT = "sales-reports"
 
 def process_file(file_path):
     try:
-        print(f"📥 Baixando arquivo: {file_path}...", flush=True)
+        # Extrai o nome do vendedor da pasta (ex: Vendedor_Ana/chat.txt -> Vendedor_Ana)
+        salesperson = file_path.split('/')[0] if '/' in file_path else "Desconhecido"
+        
+        print(f"📥 Processando {file_path} de {salesperson}...", flush=True)
         file_data = supabase.storage.from_(BUCKET_IN).download(file_path)
         text_content = file_data.decode('utf-8')
         
-        print(f"🧠 Analisando com DeepSeek: {file_path}...", flush=True)
-        prompt = f"Analise esta conversa de vendas e sugira a próxima ação:\n\n{text_content}"
-        response = llm.invoke([SystemMessage(content="Sales Coach."), HumanMessage(content=prompt)])
+        # 1. PEGAR MEMÓRIA ANTERIOR (Opcional para o prompt)
+        # Vamos apenas gerar e salvar para este MVP
         
-        # Nome do relatório (substitui barras para não criar subpastas no bucket de saída se não quiser)
-        report_name = f"RELATORIO_{file_path.replace('/', '_')}_{int(time.time())}.md"
+        print(f"🧠 Consultando DeepSeek...", flush=True)
+        prompt = f"""
+        Vendedor: {salesperson}
+        Analise esta conversa e responda em duas partes:
+        [RELATORIO]
+        (Dicas táticas para o vendedor)
+        [RESUMO]
+        (Resumo técnico de 1 parágrafo do estado da venda para o banco de dados)
         
-        print(f"📤 Enviando relatório: {report_name}...", flush=True)
+        CONVERSA:
+        {text_content}
+        """
+        
+        response = llm.invoke([SystemMessage(content="Sales Ops Director."), HumanMessage(content=prompt)])
+        full_content = response.content
+        
+        # Separa Relatório de Resumo
+        parts = full_content.split("[RESUMO]")
+        report = parts[0].replace("[RELATORIO]", "").strip()
+        summary = parts[1].strip() if len(parts) > 1 else "Sem resumo."
+
+        # 2. SALVAR RELATÓRIO NO STORAGE
+        timestamp = int(time.time())
+        report_name = f"RELATORIO_{file_path.replace('/', '_')}_{timestamp}.md"
         supabase.storage.from_(BUCKET_OUT).upload(
             path=report_name,
-            file=response.content.encode('utf-8'),
+            file=report.encode('utf-8'),
             file_options={"content-type": "text/markdown"}
         )
+
+        # 3. ATUALIZAR TABLE EDITOR (MEMÓRIA)
+        print(f"💾 Salvando memória na Tabela...", flush=True)
+        db_data = {
+            "file_path": file_path,
+            "salesperson": salesperson,
+            "last_summary": summary,
+            "updated_at": "now()"
+        }
+        # Upsert: Insere novo ou atualiza se o file_path já existir
+        supabase.table("sales_memory").upsert(db_data, on_conflict="file_path").execute()
         
-        print(f"🗑 Deletando entrada: {file_path}...", flush=True)
+        # 4. LIMPAR ENTRADA
+        print(f"🗑 Deletando entrada e finalizando.", flush=True)
         supabase.storage.from_(BUCKET_IN).remove([file_path])
+        
         return True
     except Exception as e:
-        print(f"❌ Erro ao processar {file_path}: {e}", flush=True)
+        print(f"❌ Erro crítico: {e}", flush=True)
         return False
 
 def worker_loop():
-    print("🚀 WORKER INICIADO: Escaneamento Universal...", flush=True)
-    
+    print("🚀 WORKER OPERACIONAL: Escaneando Nuvem...", flush=True)
     while True:
         try:
-            # Listamos a RAIZ do bucket
-            # O Supabase retorna pastas como objetos também
             root_files = supabase.storage.from_(BUCKET_IN).list()
-            
             if root_files:
                 for item in root_files:
                     name = item['name']
-                    
-                    # Se for uma pasta de vendedor (Ana, Bruno, Carlos)
                     if name.startswith("Vendedor_"):
-                        print(f"📂 Entrando na pasta: {name}...", flush=True)
                         sub_files = supabase.storage.from_(BUCKET_IN).list(name)
-                        
                         if sub_files:
                             for sf in sub_files:
-                                sf_name = sf['name']
-                                if sf_name.endswith('.txt'):
-                                    # Monta o caminho completo para o download
-                                    full_path = f"{name}/{sf_name}"
-                                    print(f"🎯 ALVO ENCONTRADO: {full_path}", flush=True)
+                                if sf['name'].endswith('.txt'):
+                                    full_path = f"{name}/{sf['name']}"
                                     process_file(full_path)
-            
-            time.sleep(20)
-            
+            time.sleep(25)
         except Exception as e:
-            print(f"⚠️ Erro no Loop: {e}", flush=True)
+            print(f"⚠️ Erro Loop: {e}", flush=True)
             time.sleep(30)
-# Inicia o robô em background
+
 t = Thread(target=worker_loop, daemon=True)
 t.start()
-print("🤖 Thread de monitoramento disparada.", flush=True)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
