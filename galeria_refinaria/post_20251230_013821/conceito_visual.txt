@@ -1,0 +1,29 @@
+**Briefing Criativo Detalhado**
+
+**Objetivo:** Criar um conceito visual que complementa perfeitamente o post editado, capturando a essência da mensagem e se destacando no feed do LinkedIn.
+
+**1. MOOD E ATMOSFERA**
+
+* Sensação: O post deve transmitir uma sensação de **inovação**, **clareza** e **impacto**, refletindo a melhoria da qualidade e clareza do conteúdo.
+* Estilo: **Tech Minimal**, com elementos que remetem à **inovação** e **eficiência**, sem perder a **humanidade** e a **aproachabilidade**.
+
+**2. ELEMENTOS VISUAIS**
+
+* Composição: **Minimalista**, com foco em **hierarquia visual** e **balanço**. A imagem deve ter um **ponto focal claro**, com elementos secundários que apoiam a mensagem principal.
+* Paleta de cores: **Baseada na emoção do post**, com cores que transmitam **confiança**, **inovação** e **energia**. Sugestões:
+ + Cores primárias: Azul (#4567b7) e Verde (#8bc34a)
+ + Cores secundárias: Cinza (#f7f7f7) e Branco (#ffffff)
+* Estilo técnico: **Isometric Render**, com **3D Abstract** e **Gradient Mesh** para criar uma atmosfera futurista e inovadora.
+
+**3. REFERÊNCIAS DE DESIGN**
+
+* Tendências 2025/2026 aplicáveis: **Design Neumórfico**, **Minimalismo** e **Tipografia 3D**.
+* Estilos que se destacam no feed LinkedIn: **Composição Minimalista**, **Bold Typography Integration** e **Imagens com texto sobreposto**.
+
+**Considerações adicionais**
+
+* A imagem deve ser **legível** e **entendida** em diferentes tamanhos e resoluções.
+* O design deve ser **coerente** com a marca e o tom do post.
+* A imagem deve ter um **CTA (Chamada para Ação) claro**, para direcionar os leitores para a ação desejada.
+
+**Output:** Um conceito visual que capture a essência do post editado, com um design inovador, minimalista e impactante, que se destaque no feed do LinkedIn e transmita a mensagem de forma clara e eficaz.

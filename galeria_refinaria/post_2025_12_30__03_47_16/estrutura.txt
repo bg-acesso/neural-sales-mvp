@@ -1,0 +1,47 @@
+### Estrutura para um Post de LinkedIn Baseado no Conteúdo Bruto
+
+#### 1. GANCHO: Capturando Atenção nas Primeiras Linhas
+O gancho é fundamental para capturar a atenção do leitor desde o início. Considerando a citação impactante do orador, podemos começar o post com:
+- **Citação Impactante:** Inicie o post com a citação do orador. Isso não apenas chama a atenção, mas também estabelece a base filosófica para o resto do conteúdo.
+- **Pergunta ou Afirmação Incitante:** Imediatamente após a citação, faça uma pergunta relacionada à citação ou uma afirmação que incite o leitor a querer saber mais. Isso cria uma conexão emocional e intelectual com o leitor.
+
+Exemplo:
+> "Acredite em si mesmo, acredite no seu sonho e nunca desista." - [Nome do Orador]
+> Você já se perguntou como a crença em si mesmo pode mudar completamente o curso da sua vida e carreira?
+
+#### 2. PROBLEMA/CONTEXTO: Abordando a Dor ou Situação
+Nesta seção, é importante contextualizar o problema ou a dor que a citação e o post pretendem abordar. Isso ajuda a criar uma conexão mais profunda com o leitor.
+- **Descrever o Problema:** Explique como a falta de confiança em si mesmo pode afetar negativamente a carreira e a vida pessoal.
+- **Estatísticas ou Exemplos:** Use estatísticas, exemplos ou histórias para ilustrar o impacto desse problema. Isso torna o problema mais concreto e relevante para o leitor.
+
+Exemplo:
+A falta de confiança em si mesmo é uma barreira significativa para o sucesso. Muitas pessoas lutam com sentimentos de inadequação, medo do fracasso e incerteza sobre suas capacidades. De acordo com um estudo, [inserir estatística relevante], o que mostra como essa questão é prevalente e necessita de atenção.
+
+#### 3. SOLUÇÃO/INSIGHT: Mensagem Central ou Lição
+Aqui, você deve oferecer insights ou soluções para o problema identificado. A citação do orador deve ser o ponto de partida para uma discussão mais profunda.
+- **Análise da Citação:** Discuta o significado da citação e como ela se relaciona com a superação do problema. Explore como acreditar em si mesmo pode ser um catalisador para o sucesso.
+- **Estratégias Práticas:** Forneça dicas práticas ou estratégias que os leitores podem adotar para começar a trabalhar em sua confiança e crença em si mesmos. Isso pode incluir técnicas de visualização, afirmações positivas, definir metas alcançáveis, etc.
+
+Exemplo:
+Acreditar em si mesmo não é algo que acontece da noite para o dia, mas sim um processo que requer comprometimento e prática. Aqui estão algumas estratégias para você começar a construir sua confiança:
+- Defina metas pequenas e alcançáveis para si mesmo.
+- Pratique a gratidão e o autocuidado.
+- Cerque-se de pessoas positivas que o apoiam.
+
+#### 4. CALL-TO-ACTION: Engajando o Leitor
+O call-to-action é crucial para transformar o engajamento em ação. Aqui, você deve encorajar os leitores a adotarem as estratégias discutidas ou a compartilharem suas próprias experiências.
+- **Chamado à Ação:** Peça aos leitores que compartilhem suas histórias de superação ou como começaram a trabalhar em sua confiança.
+- **Incentivo à Comunidade:** Encoraje os leitores a se conectarem uns aos outros, oferecendo suporte e compartilhando dicas.
+
+Exemplo:
+Agora é sua vez! Compartilhe conosco uma vez em que você superou um desafio graças à sua confiança em si mesmo. Vamos construir uma comunidade de apoio onde todos possam se inspirar e crescer juntos. Use a hashtag #CrençaEmSiMesmo para que possamos ver suas histórias.
+
+#### 5. TOM: Abordagem Emocional
+O tom deve ser inspirador e motivacional, com um toque de autenticidade e vulnerabilidade. Isso ajuda a criar uma conexão mais pessoal com o leitor.
+- **Uso de Histórias Pessoais:** Se possível, compartilhe uma história pessoal de como acreditar em si mesmo fez uma diferença na sua vida.
+- **Linguagem Inspiradora:** Use uma linguagem que inspire e motive, mas também seja realista e acessível.
+
+Exemplo:
+Entendo que pode ser difícil acreditar em si mesmo, especialmente quando tudo parece estar contra você. Mas quero que saiba que você não está sozinho. Minha própria jornada de autoconfiança tem sido cheia de altos e baixos, mas cada passo para a frente tem sido valioso. Estou aqui para apoiá-lo nessa jornada, e juntos, podemos alcançar coisas incríveis.
+
+Ao seguir essa estrutura, o post de LinkedIn pode se tornar uma mensagem poderosa de inspiração e motivação, encorajando os leitores a acreditar em si mesmos e em seus sonhos.

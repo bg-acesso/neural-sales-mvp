@@ -1,0 +1,26 @@
+2025-12-30 01:20:48 | INFO     | ✅ Configuração validada
+2025-12-30 01:21:04 | INFO     | ✅ Input capturado: Nicho=Fitness & Transformação Corporal, 41 caracteres
+2025-12-30 01:21:04 | INFO     | Processando nicho: Fitness & Transformação Corporal
+2025-12-30 01:21:04 | INFO     | ✅ 5 agentes especializados criados
+2025-12-30 01:21:04 | INFO     | ✅ Pipeline de 5 tarefas configurada para monetização
+2025-12-30 01:21:04 | INFO     | 
+LiteLLM completion() model= llama-3.3-70b-versatile; provider = groq
+2025-12-30 01:21:07 | INFO     | Wrapper: Completed Call, calling success_handler
+2025-12-30 01:21:07 | INFO     | 
+LiteLLM completion() model= llama-3.3-70b-versatile; provider = groq
+2025-12-30 01:21:08 | INFO     | Wrapper: Completed Call, calling success_handler
+2025-12-30 01:21:08 | INFO     | 
+LiteLLM completion() model= llama-3.3-70b-versatile; provider = groq
+2025-12-30 01:21:09 | INFO     | Wrapper: Completed Call, calling success_handler
+2025-12-30 01:21:09 | INFO     | 
+LiteLLM completion() model= llama-3.3-70b-versatile; provider = groq
+2025-12-30 01:21:09 | INFO     | Wrapper: Completed Call, calling success_handler
+2025-12-30 01:21:09 | INFO     | 
+LiteLLM completion() model= llama-3.3-70b-versatile; provider = groq
+2025-12-30 01:21:10 | INFO     | Wrapper: Completed Call, calling success_handler
+2025-12-30 01:21:10 | INFO     | 🎨 Gerando post visual: Vibrant Before-After Transformation Image...
+2025-12-30 01:21:14 | INFO     | ✅ Imagem Instagram salva: arsenal_instagram\post_2025_12_30__01_21_14\imagem_instagram.png
+2025-12-30 01:21:14 | INFO     | 
+LiteLLM completion() model= llama-3.3-70b-versatile; provider = groq
+2025-12-30 01:21:14 | INFO     | Wrapper: Completed Call, calling success_handler
+2025-12-30 01:22:41 | INFO     | ✅ Configuração validada

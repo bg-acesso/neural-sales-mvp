@@ -1,0 +1,22 @@
+{
+  "total_posts": 3,
+  "total_chars_input": 683,
+  "total_chars_output": 683,
+  "total_images": 3,
+  "templates_usados": {
+    "null": 1,
+    "null": 1
+  },
+  "estilos_usados": {
+    "null": 1,
+    "null": 1
+  },
+  "primeira_execucao": "2025-12-30T01:06:38.771780",
+  "ultima_execucao": "2025-12-30T01:19:34.519387",
+  "posts_por_dia": {
+    "2025-12-30": 3
+  },
+  "tempo_medio_processamento": 97.2094509601593,
+  "sucesso": 1,
+  "erros": 2
+}

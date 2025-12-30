@@ -1,0 +1,23 @@
+# --- SEGURANÇA (CRÍTICO) ---
+.env
+.env.local
+
+# --- AMBIENTE VIRTUAL ---
+# Ignora a pasta pesada das bibliotecas (o Render vai instalar as dele)
+.venv/
+venv/
+env/
+
+# --- PYTHON CACHE ---
+__pycache__/
+*.pyc
+
+# --- ARQUIVOS LOCAIS DE DADOS (Se tiver sobrado algum) ---
+inputs/
+outputs/
+*.db
+*.sqlite3
+
+# --- ARQUIVOS DO SISTEMA/IDE ---
+.DS_Store
+.vscode/

@@ -1,0 +1,16 @@
+{
+  "timestamp": "20251230_013821",
+  "data": "2025-12-30T01:38:21.888513",
+  "metricas": {
+    "input_chars": 29,
+    "post_chars": 571,
+    "qualidade_estimada": "aprovado"
+  },
+  "arquivos": {
+    "post": "post_final.txt",
+    "imagem": "imagem.png",
+    "estrategia": "estrategia.txt",
+    "conceito_visual": "conceito_visual.txt",
+    "prompt": "prompt_imagem.txt"
+  }
+}
