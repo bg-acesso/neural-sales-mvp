@@ -79,35 +79,40 @@ def process_file(file_object):
     print(f"🗑 Deletando entrada processada: {filename}")
     supabase.storage.from_(BUCKET_IN).remove([filename])
 
+# ... (mantenha suas funções analyze_update e process_file iguais)
+
 def worker_loop():
     print("🚀 WORKER INICIADO: Monitorando Supabase Storage...")
+    # Lista de vendedores que criamos
+    vendedores = ["Vendedor_Ana", "Vendedor_Bruno", "Vendedor_Carlos"]
+    
     while True:
         try:
-            # Lista arquivos no bucket de entrada
-            # Tenta listar na raiz e subpastas
-            files = supabase.storage.from_(BUCKET_IN).list()
+            for vendedor in vendedores:
+                # print(f"🧐 Checando pasta: {vendedor}...") # Opcional: Remova o comentário se quiser ver no log
+                files = supabase.storage.from_(BUCKET_IN).list(vendedor)
+                
+                if files:
+                    for f in files:
+                        if f['name'].endswith('.txt'):
+                            full_storage_path = f"{vendedor}/{f['name']}"
+                            process_file({'name': full_storage_path})
             
-            for f in files:
-                if f['name'].endswith('.txt'):
-                    process_file(f)
-                    
-            # Dorme 30 segundos para economizar
-            time.sleep(30)
+            time.sleep(30) # Espera 30 segundos entre as checagens
             
         except Exception as e:
             print(f"⚠ Erro no loop: {e}")
             time.sleep(30)
 
-# --- INICIALIZAÇÃO HÍBRIDA ---
-def run():
-    # Inicia o worker em background
-    t = Thread(target=worker_loop)
-    t.start()
-    
-    # Inicia o servidor web (Bloqueante)
-    # Render vai procurar a porta via variável de ambiente PORT ou padrão 5000
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+# --- INICIALIZAÇÃO AUTOMÁTICA (MUDANÇA AQUI) ---
+
+# Iniciamos a thread aqui, fora de qualquer função ou bloco if
+# Isso garante que o Gunicorn execute o robô assim que importar o arquivo
+t = Thread(target=worker_loop, daemon=True)
+t.start()
+print("🤖 Sistema de Thread disparado com sucesso.")
 
 if __name__ == "__main__":
-    run()
+    # Isso só será usado se você rodar localmente (python cloud_worker.py)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port) 
